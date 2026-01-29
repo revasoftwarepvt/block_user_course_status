@@ -1,0 +1,17 @@
+.block_course_status .progress {
+    height: 16px;
+    border-radius: 8px;
+}
+
+.block_course_status .status-completed {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.block_course_status .status-incomplete {
+    color: #ef6c00;
+}
+
+.block_course_status .status-notstarted {
+    color: #757575;
+}
