@@ -15,6 +15,7 @@ class block_user_course_status extends block_base {
         global $CFG,$USER,$PAGE,$DB;
 		
 		$PAGE->requires->js_call_amd('block_user_course_status/block', 'init');
+//$PAGE->requires->css('https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css');
 		$PAGE->requires->css(new moodle_url(
     'https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css'
 ));
@@ -27,6 +28,25 @@ class block_user_course_status extends block_base {
 		
         $this->content = new stdClass();
         $this->content->text = '';
+		/*
+		$this->content->text .= '
+<div class="course-status-filters mb-2">
+    <select id="course-category" class="form-select form-select-sm">
+        <option value="">All Categories</option>';
+		
+		$categories = core_course_category::make_categories_list();
+foreach ($categories as $id => $name) {
+    $this->content->text .= '<option value="'.$id.'">'.$name.'</option>';
+}
+
+$this->content->text .= '
+    </select>
+
+    <input type="text" id="course-search"
+        class="form-control form-control-sm mt-2"
+        placeholder="Search course">
+</div>';
+*/
         $courses = enrol_get_users_courses($USER->id, true);
 
         if (!$courses) {
